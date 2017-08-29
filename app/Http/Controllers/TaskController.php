@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Task;
+use App\Task;
+use Response;
 
 class TaskController extends Controller
 {
@@ -14,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        return Response::json(Task::all());
     }
 
     /**
@@ -46,7 +47,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        return Response::json(['task' => Task::find($id)]);
+        return Response::json(Task::find($id));
     }
 
     /**
